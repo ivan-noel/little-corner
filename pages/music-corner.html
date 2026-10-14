@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Corner · little corner.</title>
+<meta name="description" content="little corner. — a quiet personal space on the internet.">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/reset.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/theme.css">
+<link rel="stylesheet" href="../assets/css/player.css">
+<script defer src="../assets/js/main.js"></script>
+<script defer src="../assets/js/data/playlist.js"></script>
+<script defer src="../assets/js/modules/player.js"></script>
+<script defer src="../assets/js/modules/page.js"></script>
+<script defer src="../assets/js/modules/gallery.js"></script>
+<script defer src="../assets/js/modules/router.js"></script>
+
+</head>
+<body>
+<div class="ambient"></div>
+<div class="app-shell">
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></label>
+    <label for="nav-toggle" class="scrim" aria-hidden="true"></label>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c.6 3.7 2.3 5.4 6 6-3.7.6-5.4 2.3-6 6-.6-3.7-2.3-5.4-6-6 3.7-.6 5.4-2.3 6-6Z"/></svg></span>
+        <a href="../index.html" class="brand-name">little corner.</a>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="living-room.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><span class="nav-label">Living Room</span></a></li>
+<li><a href="game-shelf.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8.5h10a4.5 4.5 0 0 1 4.4 5.4l-.4 2A3 3 0 0 1 18 18.5c-.9 0-1.7-.4-2.3-1.1L14 15.5h-4l-1.7 1.9a3 3 0 0 1-2.3 1.1 3 3 0 0 1-3-2.6l-.4-2A4.5 4.5 0 0 1 7 8.5Z"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.2" cy="11.2" r=".6" fill="currentColor" stroke="none"/><circle cx="17.2" cy="13.2" r=".6" fill="currentColor" stroke="none"/></svg></span><span class="nav-label">Game Shelf</span></a></li>
+<li><a href="music-corner.html" class="nav-item active"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5.8L20 4v12.2"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16.2" r="2.5"/></svg></span><span class="nav-label">Music Corner</span></a></li>
+<li><a href="memory-room.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.6-4.6-10-9.4C.4 7.7 2.4 4 6.1 4c2 0 3.6 1 5.9 3.4C14.3 5 15.9 4 17.9 4c3.7 0 5.7 3.7 4.1 7.1-2.4 4.8-10 9.4-10 9.4Z"/></svg></span><span class="nav-label">Memory Room</span></a></li>
+<li><a href="open-window.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="14" height="14" rx="2.4"/><path d="m3 15 3.5-3.5a2 2 0 0 1 2.8 0L13 15"/><circle cx="12" cy="9" r="1.3"/><path d="M20.5 8v9a2.5 2.5 0 0 1-2.5 2.5H9"/></svg></span><span class="nav-label">Open Window</span></a></li>
+<li><a href="connect.html" class="nav-item"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c0-4.4 3.8-8 8.4-8s8.4 3.6 8.4 8-3.8 8-8.4 8c-1.1 0-2.1-.2-3-.6L4 20l1.3-3.9C4.5 15 4 13.6 4 12Z"/></svg></span><span class="nav-label">Connect</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-foot"></div>
+    </aside>
+<main class="main">
+
+<section class="content-wrap">
+  <div class="panel reveal">
+    <div class="panel-head">
+      <div>
+        <span class="eyebrow" data-room="04 · Music Corner">Music Corner</span>
+        <h1>Songs that never left me.</h1>
+        <p class="panel-sub">The songs that stay with me, on repeat.</p>
+      </div>
+      <a href="music-library.html" class="view-all">View All Music <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="featured-strip reveal" data-file="secret-doors.mp3" data-title="Secret Doors" data-artist="Arctic Monkeys">
+      <div class="cover"><img src="../assets/images/music/music1.jpg" alt="Secret Doors — Arctic Monkeys" loading="lazy" decoding="async">
+        <button class="song-play cover-play" type="button" aria-label="Play Secret Doors"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+      </div>
+      <div>
+        <span class="label">Featured Song</span>
+        <h2>Secret Doors</h2>
+        <p class="who">Arctic Monkeys</p>
+        <p>Some songs just feel good to hear. This one became my go-to, even on the days I'm not sad. Every track reminds me of a different moment.</p>
+        <div class="artist-row"><div class="artist-chip">AM</div>
+<div class="artist-chip">RH</div>
+<div class="artist-chip">H</div>
+<div class="artist-chip">NC</div>
+<div class="artist-chip">CC</div></div>
+      </div>
+    </div>
+    <h2 class="section-title">Favorite Songs</h2>
+    <div class="song-list">
+      <div class="song-row reveal" data-title="I'd Smile" data-artist="Nightcord at 25" data-file="id-smile.mp3">
+  <div class="song-row-main"><span class="song-index">01</span>
+    <div><div class="song-name">I'd Smile</div><div class="song-artist">Nightcord at 25</div></div>
+  </div>
+  <button class="song-play" type="button" aria-label="Play I'd Smile"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+</div>
+<div class="song-row reveal" data-title="No. 1 Party Anthem" data-artist="Arctic Monkeys" data-file="no-1-party-anthem.mp3">
+  <div class="song-row-main"><span class="song-index">02</span>
+    <div><div class="song-name">No. 1 Party Anthem</div><div class="song-artist">Arctic Monkeys</div></div>
+  </div>
+  <button class="song-play" type="button" aria-label="Play No. 1 Party Anthem"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+</div>
+<div class="song-row reveal" data-title="Harvey" data-artist="Her's" data-file="harvey.mp3">
+  <div class="song-row-main"><span class="song-index">03</span>
+    <div><div class="song-name">Harvey</div><div class="song-artist">Her's</div></div>
+  </div>
+  <button class="song-play" type="button" aria-label="Play Harvey"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+</div>
+<div class="song-row reveal" data-title="Let Down" data-artist="Radiohead" data-file="let-down.mp3">
+  <div class="song-row-main"><span class="song-index">04</span>
+    <div><div class="song-name">Let Down</div><div class="song-artist">Radiohead</div></div>
+  </div>
+  <button class="song-play" type="button" aria-label="Play Let Down"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+</div>
+<div class="song-row reveal" data-title="No Surprises" data-artist="Radiohead" data-file="no-surprises.mp3">
+  <div class="song-row-main"><span class="song-index">05</span>
+    <div><div class="song-name">No Surprises</div><div class="song-artist">Radiohead</div></div>
+  </div>
+  <button class="song-play" type="button" aria-label="Play No Surprises"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+</div>
+<div class="song-row reveal" data-title="Gravits" data-artist="Crayon Case" data-file="gravits.mp3">
+  <div class="song-row-main"><span class="song-index">06</span>
+    <div><div class="song-name">Gravits</div><div class="song-artist">Crayon Case</div></div>
+  </div>
+  <button class="song-play" type="button" aria-label="Play Gravits"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></button>
+</div>
+    </div>
+    <div class="sign-off reveal">
+      <p class="line-1">Some songs end. The feelings they leave never do.</p>
+      <p class="line-2">Every playlist here reminds me of a different chapter of my life.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+</body>
+</html>
