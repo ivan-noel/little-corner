@@ -1,0 +1,243 @@
+/* =======================================================
+   PLAYER — widget "now playing" di sidebar
+   struktur dan warna jadi satu di sini; warnanya tetap ambil
+   dari variabel tema (--accent, --accent-soft, dll)
+======================================================= */
+.now-playing {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+}
+
+.np-main {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.np-art {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--accent-ink);
+}
+.np-art svg { width: 16px; height: 16px; }
+.now-playing.is-playing .np-art { animation: npSpin 5s linear infinite; }
+@keyframes npSpin { to { transform: rotate(360deg); } }
+
+.np-text { flex: 1; min-width: 0; }
+.np-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color);
+}
+.np-artist {
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--accent-ink);
+}
+
+.np-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  transition: background .2s ease;
+}
+.np-toggle:hover { background: var(--accent-ink); }
+.np-toggle:disabled { opacity: .5; cursor: default; }
+.np-toggle svg { width: 13px; height: 13px; }
+
+/* seek + volume (range input) */
+.np-range {
+  --fill: 0%;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+.np-range:disabled { cursor: default; opacity: .55; }
+.np-range:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; border-radius: 6px; }
+
+.np-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent) var(--fill), var(--surface-solid) var(--fill));
+}
+.np-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent) var(--fill), var(--surface-solid) var(--fill));
+}
+.np-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -4px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent-ink);
+}
+.np-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent-ink);
+}
+
+/* tombol kecil: prev, next, repeat, mute */
+.np-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.np-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-ink);
+  transition: background .2s ease;
+}
+.np-btn:hover { background: rgba(255,255,255,.7); }
+.np-btn[aria-pressed="true"] { background: var(--surface-solid); }
+.np-btn svg { width: 15px; height: 15px; }
+
+.np-volume {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+}
+.np-volume .np-range { flex: 1; min-width: 0; }
+.now-playing.no-volume .np-volume .np-range { display: none; }
+
+.np-mute[data-level="mute"] .v-low,
+.np-mute[data-level="mute"] .v-high,
+.np-mute[data-level="low"] .v-high,
+.np-mute:not([data-level="mute"]) .v-x { display: none; }
+
+.np-hint {
+  font-size: 10.5px;
+  line-height: 1.5;
+  padding: 8px 10px 0;
+  color: var(--text-muted);
+}
+
+/* =======================================================
+   Equalizer kecil, gantiin nomor urut di lagu yang lagi main
+======================================================= */
+.song-index .eq {
+  display: none;
+  height: 12px;
+  align-items: flex-end;
+  gap: 2px;
+}
+.song-index .eq i {
+  width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+  transform-origin: bottom;
+  animation: eqBar 1s ease-in-out infinite;
+}
+.song-index .eq i:nth-child(2) { animation-duration: .8s; animation-delay: -.4s; }
+.song-index .eq i:nth-child(3) { animation-duration: 1.15s; animation-delay: -.7s; }
+@keyframes eqBar {
+  0%, 100% { transform: scaleY(.25); }
+  50% { transform: scaleY(1); }
+}
+.song-row.is-playing .song-index .num { display: none; }
+.song-row.is-playing .song-index .eq { display: flex; }
+
+/* tombol play di cover Featured Song */
+.cover-play {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 6px 16px rgba(51,39,43,.22);
+  transition: background .2s ease, color .2s ease;
+}
+.cover-play svg { width: 14px; height: 14px; }
+.featured-strip:hover .cover-play,
+.featured-strip.is-playing .cover-play { background: var(--accent); color: #fff; }
+
+/* =======================================================
+   Mini player — layar kecil, muncul setelah ada lagu yang diputar
+   (di layar besar pemutarnya sudah kelihatan terus di sidebar)
+======================================================= */
+.mini-player { display: none; }
+
+.mini-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.mini-title,
+.mini-artist {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mini-title { font-size: 13px; font-weight: 600; color: var(--text-color); }
+.mini-artist { font-size: 11px; color: var(--accent-ink); }
+.mini-player .np-toggle { width: 38px; height: 38px; }
+.mini-player .np-toggle svg { width: 14px; height: 14px; }
+.mini-player .np-btn { width: 36px; height: 36px; }
+.mini-player .np-btn svg { width: 17px; height: 17px; }
+
+@media (max-width: 900px) {
+  .mini-player:not([hidden]) {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: fixed;
+    z-index: 80;
+    left: 14px;
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 8px 10px 8px 20px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,.7);
+    box-shadow: var(--shadow-soft);
+  }
+  body.has-mini .app-shell { padding-bottom: 92px; }
+}
